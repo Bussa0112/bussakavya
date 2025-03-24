@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        input {
+            padding: 10px;
+            width: 80%;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            outline: none;
+        }
+        input:focus {
+            border-color: #007bff;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sum Calculator</h1>
+        <input type="number" id="first_number" placeholder="Enter first number">
+        <input type="number" id="second_number" placeholder="Enter second number">
+        <button onclick="sumNumbers()">Sum</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function sumNumbers() {
+            let num1 = parseInt(document.getElementById("first_number").value);
+            let num2 = parseInt(document.getElementById("second_number").value);
+            let sum = 0;
+
+            if (!isNaN(num1) && !isNaN(num2) && num1 <= num2) {
+                for (let i = num1; i <= num2; i++) {
+                    sum += i;
+                }
+                document.getElementById("result").innerHTML = "SUM: " + sum;
+            } else {
+                document.getElementById("result").innerHTML = "Please enter valid numbers!";
+            }
+        }
+    </script>
+</body>
+</html>

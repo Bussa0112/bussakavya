@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        h2 {
+            color: #333;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 250px;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            background-color: #f8f8f8;
+            color: #333;
+            outline: none;
+            transition: border 0.3s ease;
+        }
+        input:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #28a745;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #student_info {
+            font-size: 16px;
+            color: #555;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 6px;
+            width: 100%;
+            border: 1px solid #ccc;
+            word-wrap: break-word;
+        }
+        ::placeholder {
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div style="padding: 20px;">
+    <h2>My Details</h2>
+    <input id="firstName" placeholder="Enter your first name"><br>
+    <input id="secondName" placeholder="Enter your second name"><br>
+    <input id="age" placeholder="Enter your age"><br>
+    <input id="dept" placeholder="Enter your department"><br>
+     <div style="display: flex;">
+    <button onclick="insert_info()">Insert Details</button>
+    <button onclick="show_info()">Show Details</button>
+</div>
+    <p id="student_info"></p>
+</div>
+
+
+    <script>
+        const students = [];
+        function insert_info() {
+            const firstName = document.getElementById("firstName").value;
+            const secondname = document.getElementById("secondName").value;
+            const Age = document.getElementById("age").value;
+            const dept = document.getElementById("dept").value;
+            const student = {
+                firstName: firstName,
+                secondname: secondname,
+                Age: Age,
+                dept: dept,
+                description: function() {
+                    return "This is " + this.firstName + " " + this.secondname + " from " + this.dept + " department, aged " + this.Age + ".";
+                }
+            };
+            students.push(student);
+            document.getElementById("firstName").value = "";
+            document.getElementById("secondName").value = "";
+            document.getElementById("age").value = "";
+            document.getElementById("dept").value = "";
+        }
+        function show_info() {
+            let allDetails = "";
+            for (let i = 0; i < students.length; i++) {
+                allDetails += students[i].description() + "<br>";
+            }
+            document.getElementById("student_info").innerHTML = allDetails;
+        }
+    </script>
+</body>
+</html>

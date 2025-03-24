@@ -1,25 +1,37 @@
-
 body {
     border-top: 1px solid black;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
 }
 
 h1 {
     text-align: center;
     margin-top: 20px;
+    font-size: 36px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #3498db, #9b59b6);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
 }
+
 #navbar {
-    display: flex;
     justify-content: space-between;
     padding: 20px;
+    width: 20%;
     box-sizing: border-box;
-    background-color: white;
+    background-color: #2c3e50;
+    color: white;
 }
 
 #navbar ul {
-    display: flex;
     justify-content: space-between;
     list-style: none;
     padding: 0;
@@ -32,28 +44,35 @@ h1 {
 }
 
 #navbar a {
-    color: black;
+    color: white;
     text-decoration: none;
     font-size: 14px;
     display: block;
     padding: 8px 12px;
     border-radius: 4px;
     transition: background-color 0.3s;
+    font-weight: bold;
 }
 
 #navbar a:hover {
-    background-color: #555;
+    background-color: #34495e;
+    font-size: 16px;
 }
+
 #content {
     margin: 20px;
     padding: 20px;
     width: 100%;
+    background-color: #ffffff;
+    border-radius: 8px;
 }
+
 #project-display {
     padding: 20px;
     border: 1px solid #ccc;
-    margin-top: 20px;
-    background-color: #f9f9f9;
+    width: 80%;
+    background-color: #eaf2f8;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 iframe {
@@ -61,6 +80,27 @@ iframe {
     height: 500px;
     border: none;
 }
+
+.task-one {
+    background-color: #f9e1e1; 
+    border-left: 5px solid #e74c3c; 
+}
+
+.task-two {
+    background-color: #e1f7e1;
+    border-left: 5px solid #2ecc71;
+}
+
+.task-three {
+    background-color: #e1f0f7;
+    border-left: 5px solid #3498db;
+}
+
+.task-four {
+    background-color: #f1e1f7;
+    border-left: 5px solid #9b59b6;
+}
+
 @media (max-width: 768px) {
     #navbar {
         flex-direction: column;
@@ -74,5 +114,10 @@ iframe {
 
     #navbar li {
         margin-bottom: 10px;
+    }
+
+    #navbar a {
+        font-size: 16px;
+        padding: 10px 15px;
     }
 }

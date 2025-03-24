@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        let studentEntries = [];
+        function Student(firstName, secondName, age, department) {
+            this.firstName = firstName;
+            this.secondName = secondName;
+            this.age = age;
+            this.department = department;
+        }
+        function insertInfo() {
+            let firstName = document.getElementById("firstName").value;
+            let secondName = document.getElementById("secondName").value;
+            let age = document.getElementById("age").value;
+            let department = document.getElementById("department").value;
+
+            if (firstName && secondName && age && department) {
+                let student = new Student(firstName, secondName, age, department);
+                studentEntries.push(student);
+                document.getElementById("firstName").value = "";
+                document.getElementById("secondName").value = "";
+                document.getElementById("age").value = "";
+                document.getElementById("department").value = "";
+
+                document.getElementById("student_info").innerHTML = "";
+            } else {
+                document.getElementById("student_info").innerHTML = "Please fill all fields!";
+            }
+        }
+        function showInfo() {
+            if (studentEntries.length > 0) {
+                let output = "";
+                studentEntries.forEach(student => {
+                    output += `<p>This is ${student.firstName} ${student.secondName} from the ${student.department} department, aged ${student.age} years.</p>`;
+                });
+                document.getElementById("student_info").innerHTML = output;
+            } else {
+                document.getElementById("student_info").innerHTML = "No information inserted yet. Please click 'Insert Info' first.";
+            }
+        }
+        function showAll() {
+            showInfo();
+        }
+        function clearDisplay() {
+            document.getElementById("student_info").innerHTML = "";
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9; 
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        h2 {
+            color: #2c3e50;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        table {
+            margin-top: 20px;
+            border-spacing: 10px;
+            text-align: center;
+        }
+        input {
+            padding: 12px;
+            margin: 5px;
+            width: 220px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            background-color: #fff;
+            color: #333;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #3498db; 
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.2);
+            outline: none;
+        }
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            color: white;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+        .insert-button {
+            background-color: #2ecc71;
+        }
+
+        .show-button {
+            background-color: #e74c3c;
+        }
+
+        .show-all-button {
+            background-color: #f39c12;
+        }
+
+        .clear-button {
+            background-color: #9b59b6;
+        }
+        #student_info {
+            margin-top: 20px;
+            color: #34495e;
+            font-size: 18px;
+            text-align: center;
+            padding: 10px;
+            width: 80%;
+            background-color: #ecf0f1;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div >
+        <h2>My Details</h2>
+        <table>
+            <tr>
+                <td><input id="firstName" placeholder="Enter your first name" /></td>
+                <td><input id="secondName" placeholder="Enter your second name" /></td>
+            </tr>
+            <tr>
+                <td><input id="age" placeholder="Enter your age" /></td>
+                <td><input id="department" placeholder="Enter your department" /></td>
+            </tr>
+            <tr>
+                <td><button onclick="insertInfo();" class="insert-button">Insert Details</button></td>
+                <td><button onclick="showInfo();" class="show-button">Show Details</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="showAll();" class="show-all-button">Show All</button></td>
+                <td><button onclick="clearDisplay();" class="clear-button">Clear Display</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="student_info"></div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f4f4f9;
+                color: #333;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            #container_id {
+                text-align: center;
+                background-color: #ffffff;
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                width: 350px;
+            }
+            input {
+                padding: 12px;
+                margin: 10px 0;
+                width: 100%;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+                font-size: 16px;
+                transition: border-color 0.3s;
+            }
+            input:focus {
+                border-color: #3498db;
+                outline: none;
+            }
+            button {
+                padding: 12px 20px;
+                background-color: #2ecc71;
+                color: white;
+                font-size: 16px;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+                width: 100%;
+                transition: background-color 0.3s ease;
+            }
+            button:hover {
+                background-color: #27ae60;
+            }
+            #result {
+                margin-top: 20px;
+                font-size: 20px;
+                font-weight: bold;
+                color: #333;
+            }
+        </style>
+    </head>
+    <body id="container_id">
+        <div>
+            <input placeholder="Enter the A value" id="a_value" type="number" />
+            <input placeholder="Enter the B value" id="b_value" type="number" />
+            <button onclick="generateRandomNumber()">Generate Random Number</button>
+            <div id="result"></div>
+        </div>
+
+        <script>
+            let colors = ["red", "green", "blue", "orange"];
+
+            function generateRandomNumber() {
+                let a = parseInt(document.getElementById("a_value").value);
+                let b = parseInt(document.getElementById("b_value").value);
+                let randomNumber = Math.floor(Math.random() * (b - a + 1)) + a;
+                document.getElementById("result").innerHTML = "Random Number: " + randomNumber;
+
+                let size = colors.length;
+                let idx = Math.floor(Math.random() * size);
+                document.getElementById("result").style.color = colors[idx];
+            }
+
+            function welcome_user() {
+                document.getElementById("container_id").innerHTML = "Vanished";
+            }
+
+            setInterval(welcome_user, 3000);
+        </script>
+    </body>
+</html>

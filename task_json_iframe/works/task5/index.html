@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html >
+    <head>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background-color: #f4f7f6;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .container {
+                background-color: #ffffff;
+                border-radius: 8px;
+                padding: 30px;
+                box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+                width: 350px;
+                max-width: 100%;
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 24px;
+                color: #333;
+                margin-bottom: 20px;
+                font-weight: 600;
+            }
+
+            .input_div input {
+                width: 100%;
+                padding: 12px;
+                margin-bottom: 20px;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+                outline: none;
+                box-sizing: border-box;
+                background-color: #f8f8f8;
+                color: #333;
+                transition: border 0.3s ease;
+            }
+
+            .input_div input:focus {
+                border-color: #4CAF50;
+                box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+            }
+
+            .input_div input:disabled {
+                background-color: #e0e0e0;
+                color: #888;
+                cursor: not-allowed;
+            }
+
+            .input_div input::placeholder {
+                color: #aaa;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Text Transformer</h1>
+            <div class="input_div">
+                <input placeholder="Input Text" onkeyup="updatetext();"/>
+                <input placeholder="Output Text" disabled/>
+            </div>
+        </div>
+
+        <script>
+            function updatetext() {
+                var inputText = document.querySelector('input[placeholder="Input Text"]').value;
+                document.querySelector('input[placeholder="Output Text"]').value = inputText.toUpperCase();
+            }
+        </script>
+    </body>
+</html>

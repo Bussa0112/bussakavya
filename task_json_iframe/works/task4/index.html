@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f4f7f6;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+
+            #container {
+                background: linear-gradient(135deg, #6a11cb, #2575fc);
+                border-radius: 12px;
+                padding: 30px;
+                box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+                width: 350px;
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 28px;
+                color: white;
+                margin-bottom: 20px;
+            }
+
+            .input_div input {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 20px;
+                font-size: 18px;
+                border: 2px solid #ccc;
+                border-radius: 8px;
+                outline: none;
+                box-sizing: border-box;
+                transition: all 0.3s ease;
+            }
+
+            .input_div input:focus {
+                border-color: #2575fc;
+                box-shadow: 0 0 5px rgba(37, 117, 252, 0.6);
+            }
+
+            .button_div button {
+                width: 100%;
+                padding: 12px;
+                font-size: 18px;
+                border: none;
+                border-radius: 8px;
+                margin: 5px 0;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                color: white;
+            }
+
+            .button_div button:hover {
+                transform: scale(1.05);
+            }
+
+            .button_div button:nth-child(1) {
+                background-color: #28a745;
+            }
+
+            .button_div button:nth-child(2) {
+                background-color: #dc3545;
+            }
+
+            .button_div button:nth-child(3) {
+                background-color: #ffc107;
+            }
+
+            .button_div button:nth-child(4) {
+                background-color: #007bff;
+            }
+
+            #res {
+                width: 100%;
+                padding: 10px;
+                font-size: 18px;
+                border: 2px solid #ccc;
+                border-radius: 8px;
+                background-color: #e9ecef;
+                color: #495057;
+                margin-top: 10px;
+                box-sizing: border-box;
+                text-align: center;
+                font-weight: bold;
+                cursor: not-allowed;
+            }
+
+            #container .button_div {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="container">
+            <h1>Simple Calculator</h1>
+            <div class="input_div">
+                <input placeholder="Enter the value of X" id="num1" type="number"/>
+                <input placeholder="Enter the value of Y" id="num2" type="number"/>
+                <input placeholder="Result will appear here" id="res" disabled/>
+            </div>
+
+            <div class="button_div">
+                <button onclick="add();">Addition (X + Y)</button>
+                <button onclick="subtract();">Subtraction (X - Y)</button>
+                <button onclick="multiply();">Multiplication (X * Y)</button>
+                <button onclick="divide();">Division (X / Y)</button>
+            </div>
+        </div>
+
+        <script>
+            function add() {
+                let num1 = parseFloat(document.getElementById('num1').value);
+                let num2 = parseFloat(document.getElementById('num2').value);
+                let result = num1 + num2;
+                document.getElementById('res').value = result;
+            }
+
+            function subtract() {
+                let num1 = parseFloat(document.getElementById('num1').value);
+                let num2 = parseFloat(document.getElementById('num2').value);
+                let result = num1 - num2;
+                document.getElementById('res').value = result;
+            }
+
+            function multiply() {
+                let num1 = parseFloat(document.getElementById('num1').value);
+                let num2 = parseFloat(document.getElementById('num2').value);
+                let result = num1 * num2;
+                document.getElementById('res').value = result;
+            }
+
+            function divide() {
+                let num1 = parseFloat(document.getElementById('num1').value);
+                let num2 = parseFloat(document.getElementById('num2').value);
+                if (num2 === 0) {
+                    document.getElementById('res').value = "Error: Division by zero!";
+                } else {
+                    let result = num1 / num2;
+                    document.getElementById('res').value = result;
+                }
+            }
+        </script>
+    </body>
+</html>
